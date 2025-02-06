@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images-ext-1.discordapp.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images-ext-1.discordapp.net',
+      },
+    ],
   },
   async headers() {
     return [
