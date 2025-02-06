@@ -34,6 +34,12 @@ export default function Navbar() {
                 FAQ
               </Link>
               <Link 
+                href="/contributors" 
+                className="text-white hover:text-red-500 transition-colors"
+              >
+                Contributors
+              </Link>
+              <Link 
                 href="https://discord.gg/UJ8xHU2jQy"
                 className="text-white hover:text-red-500 transition-colors"
                 target="_blank"
@@ -89,6 +95,12 @@ export default function Navbar() {
             className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
           >
             FAQ
+          </Link>
+          <Link
+            href="/contributors"
+            className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
+          >
+            Contributors
           </Link>
           <Link
             href="https://discord.gg/UJ8xHU2jQy"
