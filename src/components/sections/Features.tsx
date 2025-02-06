@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const features = [
   {
     title: 'Countless Mods',
-    description: 'Access a wide variety of utility modules designed to enhance your gameplay experience.',
+    description: 'Access a wide variety of utility modules designed to enhance your gameplay experience or make your own.',
     icon: (
       <svg
         className="w-6 h-6"
@@ -43,7 +43,7 @@ const features = [
   },
   {
     title: 'User-Friendly',
-    description: 'Easy to set up and use, with intuitive controls and helpful documentation.',
+    description: 'Plug-and-play, with no additional configuration required (but still possible)',
     icon: (
       <svg
         className="w-6 h-6"

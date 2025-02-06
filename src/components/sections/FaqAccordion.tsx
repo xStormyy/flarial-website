@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: 'Is Flarial Client free?',
-    answer: 'Yes, it is free however we will be releasing a monthly subscription to Flarial+ to those who want more advanced features but the free alternative will always exist.',
+    answer: 'Yes, Flarial Client is both Free and Open-Source (GPL-3), and is powered through the hard work of our community members'
   },
   {
     question: 'Can you use Flarial Client on servers?',
