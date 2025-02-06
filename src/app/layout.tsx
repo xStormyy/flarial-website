@@ -48,7 +48,9 @@ export default function RootLayout({
         <footer className="bg-black text-white py-8 mt-20">
           <div className="container mx-auto px-4 text-center">
             <p>© Copyright {new Date().getFullYear()} Flarial - All Rights Reserved</p>
-            <p className="mt-2">Made with ♥️ by MBG1337</p>
+            <p className="mt-2">
+              Made by <a href="https://ashank.tech" className="text-red-500 hover:underline">Ashank</a> | In partnership with <a href="https://sear.host" className="text-red-500 hover:underline">Sear Hosting</a>
+            </p>
           </div>
         </footer>
       </body>

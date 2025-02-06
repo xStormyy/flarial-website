@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { colors, spacing, typography } from "./src/theme/tokens";
 
 export default {
   content: [
@@ -8,10 +9,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      colors,
+      spacing,
+      fontFamily: {
+        primary: typography.fonts.primary,
+        system: typography.fonts.system,
       },
+      fontSize: typography.sizes,
+      lineHeight: typography.lineHeights,
+      fontWeight: typography.weights,
     },
   },
   plugins: [],
