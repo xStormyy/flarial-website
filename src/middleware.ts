@@ -24,7 +24,9 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  const ip = request.ip ?? 'anonymous'
+  const ip = request.headers.get('x-forwarded-for') ||
+             request.headers.get('x-real-ip') ||
+             'anonymous'
   const userAgent = request.headers.get('user-agent') || ''
 
   // Special bypass for specific user agent
@@ -42,7 +44,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // Remove old requests outside the current window
-  rateLimitInfo.requests = rateLimitInfo.requests.filter(time => time > windowStart)
+  rateLimitInfo.requests = rateLimitInfo.requests.filter((time: number) => time > windowStart)
 
   // Check if rate limit is exceeded
   if (rateLimitInfo.requests.length >= MAX_REQUESTS) {

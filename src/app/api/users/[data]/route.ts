@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import { Player } from '@/models/player';
 import connectDB from '@/utils/db';
 import log from '@/utils/logger';
+
+type PlayerDocument = {
+  _id: mongoose.Types.ObjectId;
+  player: string;
+  playtime: number;
+  firstJoined: number;
+  lastbeat: number;
+  nth: number;
+};
 
 export async function GET(
   request: NextRequest,
@@ -35,13 +45,15 @@ export async function GET(
     log('users', request, NextResponse.next());
 
     // Find user with case-insensitive match
-    const user = await Player.findOne({ 
+    const userDoc = await Player.findOne({ 
       player: new RegExp(`^${data}$`, 'i') 
     }).lean();
 
-    if (!user) {
+    if (!userDoc) {
       return new NextResponse(null, { status: 400 });
     }
+
+    const user = userDoc as unknown as PlayerDocument;
 
     // Remove _id field from response
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

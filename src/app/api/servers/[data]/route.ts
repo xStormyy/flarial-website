@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import { Server } from '@/models/server';
 import connectDB from '@/utils/db';
 import log from '@/utils/logger';
+
+type ServerDocument = {
+  _id: mongoose.Types.ObjectId;
+  server: string;
+  players: string[];
+};
 
 export async function GET(
   request: NextRequest,
@@ -35,13 +42,15 @@ export async function GET(
     log('servers', request, NextResponse.next());
 
     // Find server
-    const server = await Server.findOne({ 
+    const serverDoc = await Server.findOne({ 
       server: data 
     }).lean();
 
-    if (!server) {
+    if (!serverDoc) {
       return new NextResponse(null, { status: 404 });
     }
+
+    const server = serverDoc as unknown as ServerDocument;
 
     // Remove _id field from response
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
