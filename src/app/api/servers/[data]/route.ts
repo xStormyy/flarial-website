@@ -10,10 +10,9 @@ type ServerDocument = {
   players: string[];
 };
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { data: string } }
-) {
+export async function GET( request: NextRequest ) {
+  const data = request.nextUrl.searchParams.get('data');
+
   try {
     await connectDB();
 
@@ -29,9 +28,9 @@ export async function GET(
       return new NextResponse(null, { status: 403 });
     }
 
-    const data = decodeURI(params.data.toLowerCase());
+    const decodedData = decodeURI(data?.toLowerCase() || '');
 
-    if (!data || !data.includes('.')) {
+    if (!decodedData || !decodedData.includes('.')) {
       return new NextResponse(
         JSON.stringify({ message: "Invalid data provided." }), 
         { status: 400 }
@@ -43,7 +42,7 @@ export async function GET(
 
     // Find server
     const serverDoc = await Server.findOne({ 
-      server: data 
+      server: decodedData 
     }).lean();
 
     if (!serverDoc) {

@@ -13,10 +13,9 @@ type PlayerDocument = {
   nth: number;
 };
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { data: string } }
-) {
+export async function GET( request: NextRequest ) {
+  const data = request.nextUrl.searchParams.get('data');
+
   try {
     await connectDB();
 
@@ -32,9 +31,9 @@ export async function GET(
       return new NextResponse(null, { status: 403 });
     }
 
-    const data = decodeURI(params.data.toLowerCase());
+    const decodedData = decodeURI(data?.toLowerCase() || '');
 
-    if (!data) {
+    if (!decodedData) {
       return new NextResponse(
         JSON.stringify({ message: "Invalid data provided." }), 
         { status: 400 }
@@ -46,7 +45,7 @@ export async function GET(
 
     // Find user with case-insensitive match
     const userDoc = await Player.findOne({ 
-      player: new RegExp(`^${data}$`, 'i') 
+      player: new RegExp(`^${decodedData}$`, 'i') 
     }).lean();
 
     if (!userDoc) {

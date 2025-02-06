@@ -5,14 +5,14 @@ import { Types } from 'mongoose';
 import connectDB from '@/utils/db';
 import log from '@/utils/logger';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { user: string; ip: string } }
-) {
+export async function GET( request: NextRequest ) {
+  const user = request.nextUrl.searchParams.get('user');
+  const ip = request.nextUrl.searchParams.get('ip');
+
   try {
     await connectDB();
 
-    const data = [decodeURI(params.user), decodeURI(params.ip)];
+    const data = [decodeURI(user || ''), decodeURI(ip || '')];
     const agent = request.headers.get('user-agent') || '';
 
     const allowedAgents = ["Samsung Smart Fridge", "holyshitplsdonthurtme"];
