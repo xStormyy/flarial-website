@@ -7,7 +7,7 @@ interface ContributorCardProps {
 
 export function ContributorCard({ name, roles }: ContributorCardProps) {
   return (
-    <Card variant="hover" className="w-full bg-gray-900">
+    <Card variant="dark" className="w-full">
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-semibold text-white">{name}</h3>
         <div className="flex flex-wrap gap-2">

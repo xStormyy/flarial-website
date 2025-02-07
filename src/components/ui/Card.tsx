@@ -2,7 +2,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  variant?: 'default' | 'hover';
+  variant?: 'default' | 'hover' | 'dark';
 }
 
 export function Card({
@@ -11,11 +11,12 @@ export function Card({
   className = '',
   ...props
 }: CardProps) {
-  const baseStyles = 'rounded-xl bg-surface p-6 border border-gray-200 dark:border-gray-800';
+  const baseStyles = 'rounded-xl p-6 border border-gray-200 dark:border-gray-800';
   
   const variants = {
-    default: '',
-    hover: 'transition-shadow duration-200 hover:shadow-lg',
+    default: 'bg-surface',
+    hover: 'bg-surface transition-shadow duration-200 hover:shadow-lg',
+    dark: 'bg-gray-900',
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
