@@ -2,20 +2,20 @@ import { Container } from '@/components/ui/Container';
 import { ContributorCard } from '@/components/ui/ContributorCard';
 
 const contributors = [
-  { name: 'FreezeEngine', roles: ['Client Developer', 'API Developer'] },
-  { name: 'happened again', roles: ['Launcher Developer'] },
-  { name: 'Hatless', roles: ['Client Developer'] },
-  { name: 'marioSQ', roles: ['Client Developer'] },
-  { name: 'oAnshul', roles: ['Client Developer'] },
-  { name: 'TrueTypeFont', roles: ['Client Developer', 'API Developer'] },
-  { name: 'Никита', roles: ['Client Developer', 'API Developer'] },
-  { name: 'kappug', roles: ['Contributor'] },
-  { name: 'realcenter', roles: ['Client Developer', 'API Developer'] },
-  { name: 'trrgfx', roles: ['Client Developer'] },
-  { name: 'bari', roles: ['Client Developer'] },
-  { name: 'StoneHunter', roles: ['Client Developer'] },
-  { name: 'Aetopia', roles: ['Client Developer'] },
-  { name: 'Richard Gordon', roles: ['API Developer', 'Bot Developer'] },
+  { name: 'FreezeEngine', roles: ['Client Developer', 'API Developer'], github: "https://github.com/FreezeEngine", },
+  { name: 'happened again', roles: ['Launcher Developer'], github: "https://github.com/megahendick" },
+  { name: 'Hatless', roles: ['Client Developer'], github: "https://github.com/oHatless" },
+  { name: 'marioSQ', roles: ['Client Developer'], github: "https://github.com/marioCST"  },
+  { name: 'oAnshul', roles: ['Client Developer'], github: "https://github.com/oAnshull" },
+  { name: 'TrueTypeFont', roles: ['Client Developer', 'API Developer'], github: "https://github.com/TTF-fog" },
+  { name: 'Никита', roles: ['Client Developer', 'API Developer'], github: "https://github.com/Withors"},
+  { name: 'kappug', roles: ['Contributor'], github: "https://github.com/kappug" },
+  { name: 'realcenter', roles: ['Client Developer', 'API Developer'], github: "https://github.com/Melvin1663" },
+  { name: 'treegfx', roles: ['Client Developer'], github: "https://github.com/treegfx" },
+  { name: 'bari', roles: ['Client Developer'], github: "https://github.com/TheBarii" },
+  { name: 'StoneHunter', roles: ['Client Developer'], github: "https://github.com/St0neHunter" },
+  { name: 'Aetopia', roles: ['Client Developer'], github: "https://github.com/Aetopia" },
+  { name: 'Richard Gordon', roles: ['API Developer', 'Bot Developer'], github: "https://github.com/EpiclyRaspberry" },
 ];
 
 export default function ContributorsPage() {
@@ -35,6 +35,7 @@ export default function ContributorsPage() {
               key={contributor.name}
               name={contributor.name}
               roles={contributor.roles}
+              github={contributor.github}
             />
           ))}
         </div>
