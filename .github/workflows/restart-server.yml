@@ -1,0 +1,21 @@
+name: Restart Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  restart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restart server via Pterodactyl API
+        run: |
+          curl "https://panel.sear.host/ca22b579/power" \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.PTERODACTYL_API_KEY }}" \
+            -X POST \
+            -d '{
+              "signal": "restart"
+            }'
