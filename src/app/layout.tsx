@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'A utility client for minecraft Windows 10 & 11 Edition.',
   },
   icons: {
-    icon: '/flarial-transparent-smol-96x96.png',
+    icon: '/logo.svg',
   },
 }
 

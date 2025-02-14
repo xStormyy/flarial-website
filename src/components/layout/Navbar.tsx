@@ -9,7 +9,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/flarial-transparent-smol-96x96.png"
+                src="/logo.svg"
                 alt="Flarial Logo"
                 width={40}
                 height={40}
