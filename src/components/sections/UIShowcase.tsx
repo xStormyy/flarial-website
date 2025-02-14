@@ -1,17 +1,40 @@
-'use client'
+'use client';
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
-import Image from 'next/image'
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
-const screenshots = [
+const videos = [
   {
-    url: '/untitled-2-844x642.png',
-    alt: 'Flarial Client Interface',
-    caption: 'Modern User Interface'
+    id: 'NtUEMNYhrs4',
+    caption: 'Flarial Client Showcase'
   },
-  // Add more screenshots here when available
-]
+  {
+    id: 'dX1MTDmTrg0',
+    caption: 'Gameplay Enhancement'
+  },
+  {
+    id: 'mIwgVA6L9r4',
+    caption: 'Custom Features'
+  },
+  {
+    id: '_UlxNtFRxeU',
+    caption: 'Modern Interface'
+  }
+];
+
+function YouTubeEmbed({ videoId, title }: { videoId: string; title: string }) {
+  return (
+    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&rel=0&modestbranding=1`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="absolute top-0 left-0 w-full h-full"
+      />
+    </div>
+  );
+}
 
 const features = [
   { name: 'Custom Modules', flarial: true, others: false },
@@ -19,20 +42,28 @@ const features = [
   { name: 'Regular Updates', flarial: true, others: 'Varies' },
   { name: 'Performance Focused', flarial: true, others: false },
   { name: 'Open Source', flarial: true, others: false },
-]
+];
 
 export default function UIShowcase() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % screenshots.length)
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+    }, 30000); // Change video every 30 seconds
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? screenshots.length - 1 : prev - 1
-    )
-  }
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextVideo = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentVideoIndex((prev) => 
+      prev === 0 ? videos.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section className="py-24 bg-black font-primary">
@@ -53,59 +84,39 @@ export default function UIShowcase() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Image Carousel */}
+          {/* Video Carousel */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative rounded-xl overflow-hidden group"
+            className="relative rounded-xl overflow-hidden group bg-gray-900/50"
           >
-            <div className="aspect-w-16 aspect-h-12 relative">
-              <AnimatePresence mode='wait'>
-                <motion.div
-                  key={currentImageIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative w-full h-full"
-                >
-                  <Image
-                    src={screenshots[currentImageIndex].url}
-                    alt={screenshots[currentImageIndex].alt}
-                    fill
-                    className="object-cover rounded-xl shadow-2xl shadow-red-500/10 
-                             transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
+            <YouTubeEmbed 
+              videoId={videos[currentVideoIndex].id} 
+              title={videos[currentVideoIndex].caption}
+            />
 
-            {screenshots.length > 1 && (
-              <>
-                <button
-                  onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 opacity-0 group-hover:opacity-100"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 opacity-0 group-hover:opacity-100"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </>
-            )}
+            <button
+              onClick={prevVideo}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={nextVideo}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
               <p className="text-white text-center">
-                {screenshots[currentImageIndex].caption}
+                {videos[currentVideoIndex].caption}
               </p>
             </div>
           </motion.div>
@@ -170,5 +181,5 @@ export default function UIShowcase() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { colors, spacing, typography } from "./src/theme/tokens";
+import aspectRatio from "@tailwindcss/aspect-ratio";
 
 export default {
   content: [
@@ -20,5 +21,7 @@ export default {
       fontWeight: typography.weights,
     },
   },
-  plugins: [],
+  plugins: [
+    aspectRatio,
+  ],
 } satisfies Config;
