@@ -5,6 +5,19 @@ import { motion } from 'framer-motion';
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden font-primary">
+      {/* Background image */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/background.webp")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+
       {/* Background overlay with gradient */}
       <motion.div 
         initial={{ opacity: 0 }}
