@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
+import CursorGlow from '@/components/ui/CursorGlow'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,6 +42,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-black text-white min-h-screen`}>
+        <div className="cursor-glow" />
+        <CursorGlow />
         <Navbar />
         <main className="pt-16">
           {children}
