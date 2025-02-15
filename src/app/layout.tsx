@@ -52,7 +52,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 text-center">
             <p>© Copyright {new Date().getFullYear()} Flarial - All Rights Reserved</p>
             <p className="mt-2">
-              Made by <a href="https://ashank.tech" className="text-red-500 hover:underline">Ashank</a> | In partnership with <a href="https://sear.host" className="text-red-500 hover:underline">Sear Hosting</a>
+              Made by <a href="https://ashank.tech" className="text-red-500 hover:underline">Ashank</a> with help from  <a href="https://github.com/TTF-fog" className="text-red-500 hover:underline">ttf</a>| In partnership with <a href="https://sear.host" className="text-red-500 hover:underline">Sear Hosting</a>
             </p>
           </div>
         </footer>
