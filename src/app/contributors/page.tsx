@@ -2,14 +2,14 @@ import { Container } from '@/components/ui/Container';
 import { ContributorCard } from '@/components/ui/ContributorCard';
 
 const contributors = [
-  { name: 'FreezeEngine', roles: ['Client Developer', 'API Developer'], github: "https://github.com/FreezeEngine", },
+  { name: 'FreezeEngine', roles: ['Client Developer'], github: "https://github.com/FreezeEngine", },
   { name: 'happened again', roles: ['Launcher Developer'], github: "https://github.com/megahendick" },
   { name: 'Hatless', roles: ['Client Developer'], github: "https://github.com/oHatless" },
   { name: 'marioSQ', roles: ['Client Developer'], github: "https://github.com/marioCST"  },
   { name: 'oAnshul', roles: ['Client Developer'], github: "https://github.com/oAnshull" },
   { name: 'TrueTypeFont', roles: ['Client Developer', 'API Developer'], github: "https://github.com/TTF-fog" },
-  { name: 'Никита', roles: ['Client Developer', 'API Developer'], github: "https://github.com/Withors"},
-  { name: 'kappug', roles: ['Contributor'], github: "https://github.com/kappug" },
+  { name: 'Никита', roles: ['Client Developer'], github: "https://github.com/Withors"},
+  { name: 'kappug', roles: ['Client Developer'], github: "https://github.com/kappug" },
   { name: 'realcenter', roles: ['Client Developer', 'API Developer'], github: "https://github.com/Melvin1663" },
   { name: 'treegfx', roles: ['Client Developer'], github: "https://github.com/treegfx" },
   { name: 'bari', roles: ['Client Developer'], github: "https://github.com/TheBarii" },
