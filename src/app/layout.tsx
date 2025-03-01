@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Flarial Client',
   description: 'A utility client for minecraft Windows 10 & 11 Edition.',
-  metadataBase: new URL('https://flarial.synthetix.host'),
+  metadataBase: new URL('https://flarial.xyz'),
   openGraph: {
     title: 'Flarial Client',
     description: 'A utility client for minecraft Windows 10 & 11 Edition.',
-    url: 'https://flarial.synthetix.host',
+    url: 'https://flarial.xyz',
     siteName: 'Flarial Client',
     type: 'website',
     images: [
