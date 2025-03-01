@@ -9,6 +9,25 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/discord',
+        destination: 'https://discord.gg/Cy6b5M86rf',
+        permanent: false,
+      },
+      {
+        source: '/donate',
+        destination: 'https://ko-fi.com/flarialmc',
+        permanent: false,
+      },
+      {
+        source: '/beta',
+        destination: 'https://youtu.be/zKrXD-MB90k',
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {
