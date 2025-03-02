@@ -37,13 +37,26 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube-nocookie.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube-nocookie.com https://static.cloudflareinsights.com",
               "frame-src 'self' https://www.youtube-nocookie.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "media-src 'self' https://www.youtube-nocookie.com",
-              "connect-src 'self'"
+              "connect-src 'self' https://cloudflareinsights.com",
+              "trusted-types 'none'"
             ].join('; ')
+          },
+          {
+            key: 'Permissions-Policy',
+            value: [
+              'accelerometer=()',
+              'autoplay=()',
+              'clipboard-write=()',
+              'encrypted-media=()',
+              'gyroscope=()',
+              'picture-in-picture=()',
+              'web-share=()'
+            ].join(', ')
           }
         ]
       }
