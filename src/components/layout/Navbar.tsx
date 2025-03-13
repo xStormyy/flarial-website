@@ -48,7 +48,7 @@ export default function Navbar() {
                 Discord
               </Link>
               <Link
-                href="https://raw.githubusercontent.com/flarialmc/newcdn/main/launcher/latest.zip"
+                href="https://raw.githubusercontent.com/flarialmc/newcdn/main/launcher/Flarial.Launcher.exe"
                 className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
               >
                 Download
