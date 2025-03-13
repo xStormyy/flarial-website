@@ -78,7 +78,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <motion.a
-            href="https://raw.githubusercontent.com/flarialmc/newcdn/main/launcher/latest.zip"
+            href="https://raw.githubusercontent.com/flarialmc/newcdn/main/launcher/Flarial.Launcher.exe"
             className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-red-500/20"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
