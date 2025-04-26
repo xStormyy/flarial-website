@@ -1,0 +1,43 @@
+---
+import Socials from "./parts/Socials.astro"
+---
+
+<nav>
+    <div class="items">
+        <a aria-label="Home" href="/">Home</a>
+        <a aria-label="Frequently Asked Questions" href="/faq">FAQ</a>
+        <a aria-label="Download" href="/Download">Download</a>
+    </div>
+    <Socials/>
+</nav>
+
+<style>
+    nav {
+        display: grid;
+        place-items: center;
+
+        background-color: var(--background-primary);
+        background-image: url("icons/logo_background_gradient.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-y: 80%;
+
+        height: 100vh;
+        width: 100%;
+    }
+
+    .items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 3em;
+        height: 100%;
+    }
+
+    .items a {
+        font-size: 2em;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>

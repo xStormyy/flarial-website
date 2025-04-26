@@ -1,0 +1,136 @@
+---
+import MobileNavigation from "./MobileNavigation.astro"
+---
+
+<script>
+// Thanks <3
+// https://stackoverflow.com/a/39575616
+const nav: Element = document.querySelector('nav')!;
+const header_text: Element = document.querySelector('header .text p')!;
+const navHeight: number = nav.getBoundingClientRect().height;
+
+function updateNavColor(entries: any) {
+    const [entry] = entries;
+    if(!entry.isIntersecting) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+}
+
+const headerObserver = new IntersectionObserver(updateNavColor, {
+  root: null,
+  threshold: 0,
+    rootMargin: `-${navHeight}px`
+});
+
+headerObserver.observe(header_text)
+
+const mobile_nav = document.getElementById("mobile-nav");
+const mobile_nav_items = document.getElementById("mobile_nav_items");
+
+let nav_toggled: boolean = false 
+
+mobile_nav?.addEventListener("click", () => {
+    if (nav_toggled) {
+        mobile_nav_items!.style.translate = "0px 0px"
+        document.documentElement.style.overflowY = "hidden"
+    } else {
+        mobile_nav_items!.style.translate = "150vw 0px"
+        document.documentElement.style.overflowY = "scroll"
+    }
+    nav_toggled = !nav_toggled
+})
+
+
+</script>
+
+<nav>
+    <a aria-label="Home" class="logo" href="/">
+        <img height="41px" src="/icons/flarial_logo.svg" alt="">
+    </a>
+
+    <button id="mobile-nav">
+        <svg width="48" height="33" viewBox="0 0 48 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="menu_ic_top" d="M0 5H48" stroke="var(--text-primary)" stroke-width="3"/>
+            <path id="menu_ic_bottom" d="M0 25H48" stroke="var(--text-primary)" stroke-width="3"/>
+        </svg>
+    </button>
+
+    <div class="items">
+        <a aria-label="Home" href="/">Home</a>
+        <a aria-label="FAQ" href="/faq">FAQ</a>
+        <a aria-label="Discord" target="_blank" href="https://discord.gg/UJ8xHU2jQy">Discord</a>
+        <a aria-label="Download" class="primary_button" href="/download">Download</a>
+    </div>
+</nav>
+
+<div id="mobile_nav_items">
+    <MobileNavigation/>
+</div>
+
+<style>
+    nav {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+        width: 100%;
+        z-index: 999;
+        transition: 250ms;
+    }
+
+    #mobile-nav {
+        display: none;
+    }
+
+    #mobile_nav_items {
+        position: fixed;
+        width: 100%;
+        transition-duration: 250ms;
+        translate: 150vw 0px;
+    }
+
+    .logo {
+        display: grid;
+        place-items: center;
+    }
+
+    .scrolled {
+        background-color: var(--background-primary);
+        padding: 1em;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .items {
+        display: flex;
+        align-items: center;
+        gap: 1.5em;
+    }
+
+    /* HACK  the class already has this defined, but the existing styling for anchor elements overrides this for some reason */
+    .primary_button:hover {
+        text-decoration: none;
+    }
+
+    @media (max-width: 520px) {
+        .items {
+            display: none;
+        }
+
+        #mobile-nav {
+            display: block;
+            float: right;
+            background: none;
+            border: none;
+        }
+    }
+
+</style>

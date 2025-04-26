@@ -1,0 +1,78 @@
+---
+import Contributor from "../../parts/Contributor.astro"
+import contributors from  "../../../assets/contributors/section.json"
+---
+
+<section>
+    <div class="text">
+        <h1>Contributors</h1>
+        <p>Meet the talented developers who have contributed to making Flarial better.</p>
+    </div>
+    <div class="list">
+        {contributors.map(({ name, title, profile_pic }) => (
+        <Contributor name={name} title={title} profile_pic={profile_pic}/>
+        ))}
+    </div>
+    <p class="full_list">And we’re just getting started. Visit this page for the <a aria-label="List of contributors" href="/contributors">full list</a>.</p>
+</section>
+
+<style>
+    section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 3em;
+        min-height: 100vh;
+        padding: 5em 5em 5em 5em;
+
+        background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, var(--background-primary) 100%), url("images/background.webp"); 
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 1em;
+        width: 100%;
+    }
+
+    @media (max-width: 1150px) {
+        section {
+            padding: 5em 0.5em 5em 0.5em;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .text p {
+            width: 100%;
+        }
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        width: 100%;
+    }
+
+    h2, p {
+        text-align: center;
+        margin: 0px;
+        width: 43ch;
+    }
+
+    .full_list {
+        color: var(--text-secondary);
+        width: 100%;
+    }
+
+    .full_list a {
+        color: var(--text-secondary);
+    }
+
+    .full_list a:hover {
+        color: var(--accent);
+    }
+</style>

@@ -1,0 +1,42 @@
+---
+const { profile_pic, name, title } = Astro.props
+---
+
+<div class="contributor">
+    <img height="72px" width="72px" loading="lazy" src={profile_pic} alt={name}>
+    <div class="text">
+        <p><strong>{name}</strong></p>
+        <p>{title}</p>
+    </div>
+</div>
+
+<style>
+.contributor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--background-secondary);
+    padding: 1.5em;
+    border-radius: 1em;
+    gap: 1em;
+    max-width: 100%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.text p {
+    margin: 0px;
+    width: 100%;
+    min-width: 16ch;
+}
+
+img {
+    border-radius: 100%;
+    width: 72px;
+    height: 72px;
+}
+</style>

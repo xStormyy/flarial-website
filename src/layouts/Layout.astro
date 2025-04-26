@@ -1,0 +1,102 @@
+---
+import Navigation from "../components/Navigation.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="A PvP Client for Minecraft: Bedrock Edition">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Flarial Client | A PvP Client for Minecraft: Bedrock Edition</title>
+    </head>
+    <body>
+        <Navigation/>
+        <slot/>
+        <Footer/>
+    </body>
+</html>
+
+<style is:global>
+@font-face {
+    font-family: "Space Grotesk";
+    font-weight: normal;
+    src: local("Space Grotesk Bold"), url(/fonts/SpaceGrotesk-Regular.ttf);
+    font-display: auto;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    font-weight: bold;
+    src: local("Space Grotesk Bold"), url(/fonts/SpaceGrotesk-Bold.ttf);
+    font-display: auto;
+}
+
+:root {
+    --background-primary: #120E0F;
+    --background-secondary: #201A1B;
+    --text-primary: #FFFFFF;
+    --text-secondary: #3F2A2D;
+    --text-tertiary: #CFA2AC;
+    --accent: #FF2438;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+
+    font-family: "Space Grotesk", Space Grotesk, Arial, sans-serif;
+    font-size: 1.25em;
+
+    margin: 0px;
+    padding: 0px;
+
+    width: 100%;
+
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1, h2 {
+    font-size: 2em;
+    margin: 0px;
+}
+
+a {
+    color: var(--text-primary);
+    transition: 250ms;
+    text-underline-offset: 2px;
+}
+
+
+.primary_button {
+    background-color: var(--accent);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 1em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    border-radius: 0.75em;
+    width: fit-content;
+}
+
+.primary_button:hover {
+    scale: 1.10;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+</style>

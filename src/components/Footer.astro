@@ -1,0 +1,51 @@
+---
+import Socials from "./parts/Socials.astro"
+---
+
+<footer>
+    <div class="text">
+        <h2>Flarial Client</h2>
+        <p>A PvP Client for Minecraft: Bedrock Edition</p>
+        <br>
+        <p>Hosting Kindly Provided by <a aria-label="sear.host's website" target="_blank" href="https://sear.host/" target="_blank">Sear Hosting</a>.</p>
+    </div>
+    <Socials/>
+</footer>
+
+<style>
+    footer {
+        background-image: url("icons/logo_background_gradient.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1.5em;
+    }
+
+    h2, p {
+        margin: 0.25em;
+        margin-left: 0px;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    .text {
+        width: 24ch;
+    }
+
+    .text a:hover {
+        color: var(--accent);
+    }
+
+    @media (max-width: 470px) {
+        footer {
+            flex-direction: column; 
+            gap: 2em;
+        }
+    }
+</style>

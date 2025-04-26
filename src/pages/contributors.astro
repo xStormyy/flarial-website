@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro"
+import client_contributors from  "../assets/contributors/client.json"
+import launcher_contributors from  "../assets/contributors/launcher.json"
+import other_contributors from  "../assets/contributors/other.json"
+import Contributor from "../components/parts/Contributor.astro"
+---
+
+<Layout>
+    <header>
+        <div class="text">
+            <h2>Contributors</h2>
+            <p>Meet the talented developers who have contributed to making Flarial better.</p>
+        </div>
+        <div class="categories">
+            <div>
+                <h3>Client</h3>
+                <div class="category">
+                    {client_contributors.map(({ name, title, profile_pic }) => (
+                        <Contributor name={name} title={title} profile_pic={profile_pic}/>
+                    ))}
+                </div>
+            </div>
+            <div>
+                <h3>Launcher</h3>
+                <div class="category">
+                    {launcher_contributors.map(({ name, title, profile_pic }) => (
+                        <Contributor name={name} title={title} profile_pic={profile_pic}/>
+                    ))}
+                </div>
+            </div>
+            <div>
+                <h3>Other</h3>
+                <div class="category">
+                    {other_contributors.map(({ name, title, profile_pic }) => (
+                        <Contributor name={name} title={title} profile_pic={profile_pic}/>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </header>
+</Layout>
+
+<style>
+    header {
+        display: flex;
+        flex-direction: column;
+
+        background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, var(--background-primary) 100%), url("images/background.webp"); 
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        padding: 10em 0em 10em 0em;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        width: 100%;
+    }
+
+    .text h2, p {
+        text-align: center;
+        margin: 0px;
+        width: 43ch;
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+        padding: 0em 5em 0em 5em;
+        gap: 3em;
+    }
+
+    .category {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 1em;
+    }
+
+    @media (max-width: 1150px) {
+        .categories {
+            padding: 5em 0.5em 5em 0.5em;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .text p {
+            width: 100%;
+        }
+    }
+</style>

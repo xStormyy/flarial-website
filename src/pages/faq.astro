@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Question from "../components/parts/Question.astro"
+import questions from "../assets/questions.json"
+---
+
+<Layout>
+    <header>
+        <div class="text">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about Flarial Client</p>
+        </div>
+        <div class="list">
+            {questions.map(({ question, answer }) => (
+                <Question question={question} answer={answer}/>
+            ))}
+        </div>
+        <p class="bottom">Still have questions? Join our <a target="_blank" href="https://discord.gg/UJ8xHU2jQy">discord community</a> for direct support.</p>
+    </header>
+</Layout>
+
+<style>
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 2em;
+
+        padding: 10em 0em 5em 0em;
+    }
+
+    .bottom,
+    .bottom a {
+        color: var(--text-secondary);
+        width: 100%;
+    }
+
+    .bottom a:hover {
+        color: var(--accent);
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        width: 100%;
+    }
+
+    .text h2, p {
+        text-align: center;
+        margin: 0px;
+        width: 43ch;
+    }
+
+    .text h2 {
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-decoration-thickness: 4px;
+        text-underline-offset: 10px;
+        margin-bottom: 0.5em;
+        line-height: 1.5em;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 90%;
+    }
+
+    @media (max-width: 560px) {
+        .text p, .text h2 {
+            width: 100%;
+            padding: 0em 1em 0em 1em;
+        }
+    }
+</style>

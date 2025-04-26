@@ -1,0 +1,37 @@
+<div>
+    <a aria-label="YouTube page" target="_blank" href="https://www.youtube.com/@flarialclient">
+        <img loading="lazy" src="/icons/youtube.svg" alt="YouTube Logo">
+    </a>
+    <a aria-label="GitHub page" class="github" target="_blank" href="https://github.com/flarialmc/">
+        <img loading="lazy" src="/icons/github.svg" alt="GitHub Logo">
+    </a>
+    <a aria-label="Discord server" target="_blank" href="https://discord.gg/UJ8xHU2jQy">
+        <img loading="lazy" src="/icons/discord.svg" alt="Discord Logo">
+    </a>
+</div>
+
+<style>
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 1.5em;
+        height: fit-content;
+    }
+
+    a img {
+        text-decoration: none;
+        transition: 250ms;
+        height: 1.5em;
+        width: 1.5em;
+    }
+
+    a:hover img {
+        scale: 1.25;
+    }
+
+    .github img {
+        height: 1.25em;
+        width: 1.25em;
+    }
+</style>
