@@ -1,6 +1,20 @@
 import { Container } from '@/components/ui/Container';
 import { ContributorCard } from '@/components/ui/ContributorCard';
 
+export const metadata = {
+  title: 'Contributors - Flarial Client | Meet Our Development Team',
+  description: 'Meet the talented developers who contribute to Flarial Client, the best utility client for Minecraft Windows 10 & 11 Edition. Learn about our development team.',
+  keywords: ['flarial contributors', 'flarial team', 'minecraft client developers', 'flarial developers'],
+  openGraph: {
+    title: 'Contributors - Flarial Client | Meet Our Development Team',
+    description: 'Meet the talented developers who contribute to Flarial Client, the best utility client for Minecraft Windows 10 & 11 Edition.',
+    url: 'https://flarial.xyz/contributors',
+  },
+  alternates: {
+    canonical: 'https://flarial.xyz/contributors',
+  },
+};
+
 const contributors = [
   { name: 'FreezeEngine', roles: ['Client Developer'], github: "https://github.com/FreezeEngine", },
   { name: 'happened again', roles: ['Launcher Developer'], github: "https://github.com/megahendick" },
