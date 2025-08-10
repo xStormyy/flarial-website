@@ -1,8 +1,17 @@
 import FaqAccordion from '@/components/sections/FaqAccordion'
 
 export const metadata = {
-  title: 'FAQ - Flarial Client',
-  description: 'Frequently Asked Questions about Flarial Client, a utility client for Minecraft Windows 10 & 11 Edition.'
+  title: 'FAQ - Flarial Client | Frequently Asked Questions',
+  description: 'Get answers to frequently asked questions about Flarial Client, the best utility client for Minecraft Windows 10 & 11 Edition. Download guides, troubleshooting, and more.',
+  keywords: ['flarial faq', 'minecraft client questions', 'flarial help', 'minecraft utility client support'],
+  openGraph: {
+    title: 'FAQ - Flarial Client | Frequently Asked Questions',
+    description: 'Get answers to frequently asked questions about Flarial Client, the best utility client for Minecraft Windows 10 & 11 Edition.',
+    url: 'https://flarial.xyz/faq',
+  },
+  alternates: {
+    canonical: 'https://flarial.xyz/faq',
+  },
 }
 
 export default function FaqPage() {
