@@ -40,6 +40,12 @@ export default function Navbar() {
                 Contributors
               </Link>
               <Link 
+                href="/changelog" 
+                className="text-white hover:text-red-500 transition-colors"
+              >
+                Changelog
+              </Link>
+              <Link 
                 href="https://flarial.xyz/discord"
                 className="text-white hover:text-red-500 transition-colors"
                 target="_blank"
@@ -101,6 +107,12 @@ export default function Navbar() {
             className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
           >
             Contributors
+          </Link>
+          <Link
+            href="/changelog"
+            className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
+          >
+            Changelog
           </Link>
           <Link
             href="https://flarial.xyz/discord"
