@@ -27,37 +27,17 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              <Link 
-                href="/faq" 
+              <Link
+                href="/faq"
                 className="text-white hover:text-red-500 transition-colors"
               >
                 FAQ
               </Link>
-              <Link 
-                href="/contributors" 
-                className="text-white hover:text-red-500 transition-colors"
-              >
-                Contributors
-              </Link>
-              <Link 
-                href="/changelog" 
+              <Link
+                href="/changelog"
                 className="text-white hover:text-red-500 transition-colors"
               >
                 Changelog
-              </Link>
-              <Link 
-                href="https://flarial.xyz/discord"
-                className="text-white hover:text-red-500 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Discord
-              </Link>
-              <Link
-                href="https://raw.githubusercontent.com/flarialmc/newcdn/main/launcher/Flarial.Launcher.exe"
-                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
-              >
-                Download
               </Link>
             </div>
           </div>
@@ -103,30 +83,10 @@ export default function Navbar() {
             FAQ
           </Link>
           <Link
-            href="/contributors"
-            className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
-          >
-            Contributors
-          </Link>
-          <Link
             href="/changelog"
             className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
           >
             Changelog
-          </Link>
-          <Link
-            href="https://flarial.xyz/discord"
-            className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Discord
-          </Link>
-          <Link
-            href="https://raw.githubusercontent.com/flarialmc/newcdn/main/launcher/latest.zip"
-            className="bg-red-500 text-white block px-3 py-2 rounded-md hover:bg-red-600 transition-colors"
-          >
-            Download
           </Link>
         </div>
       </div>

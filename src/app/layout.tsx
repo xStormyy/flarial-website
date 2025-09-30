@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -65,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -101,14 +102,7 @@ export default function RootLayout({
         <main className="pt-16">
           {children}
         </main>
-        <footer className="bg-black text-white py-8 mt-20">
-          <div className="container mx-auto px-4 text-center">
-            <p>© Copyright {new Date().getFullYear()} Flarial - All Rights Reserved</p>
-            <p className="mt-2">
-              Made by <a href="https://ashank.tech" className="text-red-500 hover:underline">Ashank</a> with help from  <a href="https://github.com/TTF-fog" className="text-red-500 hover:underline">ttf</a>| In partnership with <a href="https://sear.host" className="text-red-500 hover:underline">Sear Hosting</a>
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   )
